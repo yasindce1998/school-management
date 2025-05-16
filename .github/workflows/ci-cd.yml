@@ -10,56 +10,58 @@ jobs:
   go-build:
     name: Build Go Application
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: Set up Go
       uses: actions/setup-go@v3
       with:
         go-version: '1.23'
-        
+
     - name: Go Mod Tidy
       run: go mod tidy
-        
+
     - name: Build Go Application
       run: go build -v -o school-api ./cmd/api
-      
+
     - name: Upload Go Binary
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: go-binary
         path: school-api
-        
+
   npm-build:
     name: Build Frontend
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '20'
-        
+
     - name: Install Dependencies
       run: npm ci
-      working-directory: ./frontend  # Adjust this path as needed
-      
+      working-directory: ./frontend
+
     - name: Build Frontend
       run: npm run build
-      working-directory: ./frontend  # Adjust this path as needed
-      
+      working-directory: ./frontend
+
     - name: Upload Frontend Build
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: frontend-build
-        path: ./frontend/build  # Adjust this path as needed
-        
-# Commented out for future reference
+        path: ./frontend/build
+
+# Uncomment when ready to deploy
 # deploy:
 #   name: Deploy
 #   needs: [go-build, npm-build]
 #   runs-on: ubuntu-latest
-#   # Add deployment steps when you're ready to implement
+#   steps:
+#   - name: Deployment step
+#     run: echo "Deploy your application here"
