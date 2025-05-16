@@ -1,0 +1,338 @@
+// Variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$danger-color: #e74c3c;
+$dark-color: #2c3e50;
+$light-color: #ecf0f1;
+$text-color: #333333;
+$background-color: #f8f9fa;
+$border-color: #dce0e3;
+
+// Import component styles
+@import './grades.scss';
+@import './attendance.scss';
+
+// Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: $text-color;
+  background-color: $background-color;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $border-color;
+  
+  h1 {
+    font-size: 2rem;
+    color: $dark-color;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+}
+
+// Button styles
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  
+  &-primary {
+    background-color: $primary-color;
+    color: white;
+    
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+  
+  &-success {
+    background-color: $secondary-color;
+    color: white;
+    
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+  
+  &-danger {
+    background-color: $danger-color;
+    color: white;
+    
+    &:hover {
+      background-color: darken($danger-color, 10%);
+    }
+  }
+  
+  &-light {
+    background-color: $light-color;
+    color: $dark-color;
+    
+    &:hover {
+      background-color: darken($light-color, 10%);
+    }
+  }
+}
+
+// Form styles
+.form-group {
+  margin-bottom: 1rem;
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    font-size: 1rem;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+  
+  .error-message {
+    color: $danger-color;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+}
+
+// Card styles
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  
+  .card-header {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $border-color;
+    
+    h2 {
+      font-size: 1.5rem;
+      color: $dark-color;
+    }
+  }
+  
+  .card-body {
+    margin-bottom: 1rem;
+  }
+  
+  .card-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid $border-color;
+  }
+}
+
+// Table styles
+.table-container {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  
+  th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+  }
+  
+  th {
+    background-color: $light-color;
+    font-weight: 600;
+  }
+  
+  tbody tr {
+    &:hover {
+      background-color: rgba($primary-color, 0.05);
+    }
+  }
+  
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
+// Alert styles
+.alert {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  
+  &-success {
+    background-color: lighten($secondary-color, 45%);
+    border: 1px solid $secondary-color;
+    color: darken($secondary-color, 20%);
+  }
+  
+  &-danger {
+    background-color: lighten($danger-color, 45%);
+    border: 1px solid $danger-color;
+    color: darken($danger-color, 20%);
+  }
+  
+  &-info {
+    background-color: lighten($primary-color, 45%);
+    border: 1px solid $primary-color;
+    color: darken($primary-color, 20%);
+  }
+}
+
+// Grid layout
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1rem;
+}
+
+.col {
+  padding: 0 1rem;
+  flex: 1;
+  
+  &-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+  &-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+  &-3 { flex: 0 0 25%; max-width: 25%; }
+  &-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+  &-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+  &-6 { flex: 0 0 50%; max-width: 50%; }
+  &-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+  &-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+  &-9 { flex: 0 0 75%; max-width: 75%; }
+  &-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+  &-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+  &-12 { flex: 0 0 100%; max-width: 100%; }
+}
+
+// Responsive breakpoints
+@media (max-width: 768px) {
+  .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+    
+    .navbar-menu {
+      width: 100%;
+      margin: 1rem 0;
+      
+      .navbar-nav {
+        flex-direction: column;
+        
+        .nav-item {
+          margin: 0.5rem 0;
+        }
+      }
+    }
+    
+    .navbar-auth {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+// Utilities
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 3rem; }
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 1rem; }
+.p-4 { padding: 1.5rem; }
+.p-5 { padding: 3rem; }
+
+// Loader
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  
+  &:before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border: 5px solid $light-color;
+    border-top-color: $primary-color;
+    border-radius: 50%;
+    animation: spinner 0.8s linear infinite;
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

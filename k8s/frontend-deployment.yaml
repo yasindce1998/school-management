@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: school-management-frontend
+  labels:
+    app: school-management-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: school-management-frontend
+  template:
+    metadata:
+      labels:
+        app: school-management-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: school-management-frontend:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "256Mi"
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 20
+          periodSeconds: 15

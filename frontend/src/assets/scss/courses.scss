@@ -1,0 +1,45 @@
+.course-info {
+  p {
+    margin-bottom: 0.75rem;
+    
+    strong {
+      display: inline-block;
+      width: 120px;
+      color: #555;
+    }
+  }
+  
+  .course-description {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 3px solid #3498db;
+  }
+}
+
+.nav-tabs {
+  border-bottom: none;
+  
+  .nav-item {
+    margin-right: 0.5rem;
+    
+    .nav-link {
+      background: none;
+      border: none;
+      padding: 0.75rem 1rem;
+      color: #555;
+      border-radius: 4px 4px 0 0;
+      
+      &.active {
+        background-color: #fff;
+        color: #3498db;
+        font-weight: 500;
+        border-bottom: 2px solid #3498db;
+      }
+      
+      &:hover:not(.active) {
+        background-color: rgba(0, 0, 0, 0.03);
+      }
+    }
+  }
+}

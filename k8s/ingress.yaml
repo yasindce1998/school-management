@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: school-management-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+  - host: school.example.com
+    http:
+      paths:
+      - path: /api(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: school-management-api
+            port:
+              number: 8080
+      - path: /(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: school-management-frontend
+            port:
+              number: 80

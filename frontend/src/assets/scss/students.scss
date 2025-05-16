@@ -1,0 +1,43 @@
+.student-info {
+  p {
+    margin-bottom: 0.75rem;
+    
+    strong {
+      display: inline-block;
+      width: 120px;
+      color: #555;
+    }
+  }
+}
+
+.course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  .course-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    .course-info {
+      flex: 1;
+      
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      p {
+        margin-bottom: 0.25rem;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
